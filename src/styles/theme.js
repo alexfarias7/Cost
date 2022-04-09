@@ -4,5 +4,9 @@ export const theme = {
   },
   fonts:{
     default: "'Open Sans', sans-serif"
+  },
+  height:{
+    default:'75%'
   }
+
 }
