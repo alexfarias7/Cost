@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Footer = styled.footer`
 background-color: #222;
 color: white;
-padding: 3em;
+padding: 2em;
+margin-top:5em;
 text-align: center;
 `
 export const SocialList = styled.li`
