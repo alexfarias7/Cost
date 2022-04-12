@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/pages/Home/Home';
 import Contato from './components/pages/Contato';
 import Sobre from './components/pages/Sobre';
-import NewProject from './components/pages/NewProject';
+import NewProject from './components/pages/NewProjetc/NewProject';
 import Company from './components/pages/Company';
 import Project from './components/pages/Project';
 //* components

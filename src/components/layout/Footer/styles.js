@@ -7,7 +7,7 @@ padding: 2em;
 margin-top:5em;
 text-align: center;
 `
-export const SocialList = styled.li`
+export const SocialList = styled.ul`
 display: flex;
 justify-content: center;
 list-style-type: none;
