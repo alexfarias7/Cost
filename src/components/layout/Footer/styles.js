@@ -4,7 +4,7 @@ export const Footer = styled.footer`
 background-color: #222;
 color: white;
 padding: 2em;
-margin-top:5em;
+margin-top:7em;
 text-align: center;
 `
 export const SocialList = styled.ul`

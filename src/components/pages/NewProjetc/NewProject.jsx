@@ -1,13 +1,40 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable no-console */
+import { useNavigate } from 'react-router-dom';
+
 import ProjectForm from '../../project/ProjectForm';
 import * as Styled from './styles'
 
 function NewProject() {
+
+  const navigate = useNavigate()
+
+  function createPost(project){
+
+    project.cost = 0
+    project.services = []
+    fetch('http://localhost:5000/projects',{
+      method:'POST',
+      headers:{
+          'Content-Type':'application/json'
+      },
+      body:JSON.stringify(project)
+
+    })
+    .then((resp)=>resp.json())
+    .then((data)=>{
+      console.log(data)
+     navigate('/project',{messsage: 'projeto criado com sucesso'})
+    })
+    .catch((err)=>console.log(err))
+  }
   return (
     <Styled.ContainerNewProject>
       <h1>Novo Projeto</h1>
       <p>texto do novo projeto</p>
       <p>Formulario</p>
-      <ProjectForm btnText ='Criar projetos'/>
+      <ProjectForm handleSubmit={createPost} btnText ='Criar projetos'/>
     </Styled.ContainerNewProject>
   );
 }
