@@ -23,10 +23,10 @@ function Navbar() {
             </Styled.Item>
 
             <Styled.Item>
-              <Link to="/contato"> Contato</Link>
+              <Link to="/contact"> Contato</Link>
             </Styled.Item>
             <Styled.Item>
-              <Link to="/newProject"> Novo Projeto</Link>
+              <Link to="/newproject"> Novo Projeto</Link>
             </Styled.Item>
             <Styled.Item>
               <Link to="/about"> Sobre</Link>
