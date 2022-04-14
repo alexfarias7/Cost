@@ -5,6 +5,11 @@ import { BsTrashFill, BsPencilFill } from 'react-icons/bs';
 import * as Styled from './styles';
 
 function ProjectCard({ id, name, budget, category, handleRemove }) {
+  const remove = (e) => {
+    e.preventDefault();
+    handleRemove(id);
+  };
+
   return (
     <Styled.ProjectCard>
       <h4>{name}</h4>
@@ -14,31 +19,33 @@ function ProjectCard({ id, name, budget, category, handleRemove }) {
       <Styled.CategoryText>
         {category === 'infra' && (
           <>
-            <Styled.SpanInfra>{}</Styled.SpanInfra> {category}
+            <Styled.SpanInfra /> <b>infra</b>
           </>
         )}
-        {category === 'Desenvolvimento' && (
+        {category === 'desenvolvimento' && (
           <>
-            <Styled.SpanInfra>{}</Styled.SpanInfra> {category}
+            <Styled.SpanDesenvolvimento /> <b>infra</b>
           </>
         )}
-        {category === 'Desing' && (
+        {category === 'desing' && (
           <>
-            <Styled.SpanInfra>{}</Styled.SpanInfra> {category}
+            <Styled.SpanDesing /> <b>Design</b>
           </>
         )}
-        {category === 'Planejamento' && (
+        {category === 'planejamento' && (
           <>
-            <Styled.SpanInfra>{}</Styled.SpanInfra> {category}
+            <Styled.SpanPlanejamento />
+            <b>Planejamento</b>
           </>
         )}
       </Styled.CategoryText>
 
       <Styled.ProjectCardAction>
         <Link to="/">
-          <BsPencilFill />Editar
+          <BsPencilFill />
+          Editar
         </Link>
-        <button type="submit">
+        <button type="submit" onClick={remove}>
           <BsTrashFill /> Excluir
         </button>
       </Styled.ProjectCardAction>
