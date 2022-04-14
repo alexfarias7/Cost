@@ -5,11 +5,13 @@ import { useEffect, useState } from 'react';
 import Message from '../../layout/Message/index';
 import LinkButon from '../../layout/LinkButton';
 import ProjectCard from '../../project/ProjectCard';
+import Loader from '../../layout/Loader/Index';
 
 import * as Styled from './style';
 
 function Project() {
   const [projects, setProjects] = useState([]);
+  const [RemoveLoading, setRemoveLoading] = useState(false)
 
   const location = useLocation();
   let message = '';
@@ -18,18 +20,23 @@ function Project() {
   }
 
   useEffect(() => {
-    fetch('http://localhost:5000/projects', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((r) => r.json())
-      .then((data) => {
-        console.log(data);
-        setProjects(data);
+
+    setTimeout(()=>{
+      fetch('http://localhost:5000/projects', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
       })
-      .catch((e) => console.log(e));
+        .then((r) => r.json())
+        .then((data) => {
+          console.log(data);
+          setProjects(data);
+          setRemoveLoading(true)
+        })
+        .catch((e) => console.log(e));
+    },3000)
+
   }, []);
 
   return (
@@ -46,13 +53,17 @@ function Project() {
             <ProjectCard
               id={project.id}
               budget={project.budget}
-             
+
               category={project?.category?.name}
 
               key={project.id}
               name={project.name}
             />
           ))}
+          {!RemoveLoading && <Loader />}
+          {RemoveLoading && projects.length===0 && (
+            <p>Não existem projetos cadastrados</p>
+          )}
       </Styled.ContainerStart>
     </Styled.ProjectContainer>
   );

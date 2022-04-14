@@ -36,7 +36,7 @@ function ProjectCard({ id, name, budget, category, handleRemove }) {
 
       <Styled.ProjectCardAction>
         <Link to="/">
-          <BsPencilFill />{""}Editar
+          <BsPencilFill />Editar
         </Link>
         <button type="submit">
           <BsTrashFill /> Excluir
