@@ -4,7 +4,7 @@ import P from 'prop-types';
 import { BsTrashFill, BsPencilFill } from 'react-icons/bs';
 import * as Styled from './styles';
 
-function ProjectCard({ id, name, budget, category, handleRemove }) {
+function ProjectCard({ id, name, budget, Category, handleRemove }) {
   const remove = (e) => {
     e.preventDefault();
     handleRemove(id);
@@ -17,22 +17,22 @@ function ProjectCard({ id, name, budget, category, handleRemove }) {
         <span>Orçamento:</span> R${budget}
       </p>
       <Styled.CategoryText>
-        {category === 'infra' && (
+        {Category === 'infra' && (
           <>
             <Styled.SpanInfra /> <b>infra</b>
           </>
         )}
-        {category === 'desenvolvimento' && (
+        {Category === 'desenvolvimento' && (
           <>
             <Styled.SpanDesenvolvimento /> <b>infra</b>
           </>
         )}
-        {category === 'desing' && (
+        {Category === 'desing' && (
           <>
             <Styled.SpanDesing /> <b>Design</b>
           </>
         )}
-        {category === 'planejamento' && (
+        {Category === 'planejamento' && (
           <>
             <Styled.SpanPlanejamento />
             <b>Planejamento</b>
@@ -41,7 +41,7 @@ function ProjectCard({ id, name, budget, category, handleRemove }) {
       </Styled.CategoryText>
 
       <Styled.ProjectCardAction>
-        <Link to="/">
+        <Link to={`/project${id}`}>
           <BsPencilFill />
           Editar
         </Link>
@@ -56,7 +56,7 @@ ProjectCard.propTypes = {
   id: P.string.isRequired,
   name: P.string.isRequired,
   budget: P.number.isRequired,
-  category: P.node.isRequired,
+  Category: P.node.isRequired,
   handleRemove: P.func.isRequired,
 };
 export default ProjectCard;

@@ -7,6 +7,7 @@ import Sobre from './components/pages/Sobre';
 import NewProject from './components/pages/NewProjetc/NewProject';
 import Company from './components/pages/Company';
 import Project from './components/pages/Project';
+import ProjectEdit from './components/pages/ProjectEdicao/Index';
 //* components
 import Container from './components/layout/Container/Container';
 import Navbar from './components/layout/Navbar/index';
@@ -25,6 +26,7 @@ function App() {
           <Route path="/company" element={<Company />} />
           <Route path="/about" element={<Sobre />} />
           <Route path="/newproject" element={<NewProject />} />
+          <Route path="/project:id" element={<ProjectEdit />} />
         </Routes>
       </Container>
       <Footer />
